@@ -14,7 +14,7 @@ import os
 
 app = Flask(__name__)
 csrf = CSRFProtect(app)
-app.config["SECRET_KEY"] = os.environ.get("SECRET_KEY")
+app.config["SECRET_KEY"] = "sjl3uwre93wpuasfhewiorhewrhnsak"
 Bootstrap(app)
 
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///to_do_list.db'
