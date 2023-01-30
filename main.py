@@ -8,9 +8,10 @@ from sqlalchemy.exc import InvalidRequestError
 from werkzeug.security import generate_password_hash, check_password_hash
 from datetime import datetime
 from collections import Counter
+import os
 
 app = Flask(__name__)
-app.config["SECRET_KEY"] = "sjl3uwre93wpuasfhewiorhewrhnsak"
+app.config["SECRET_KEY"] = os.environ.get("SECRET_KEY")
 Bootstrap(app)
 
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///to_do_list.db'
