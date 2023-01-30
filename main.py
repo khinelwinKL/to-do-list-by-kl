@@ -1,7 +1,6 @@
 from flask import Flask, render_template, redirect, request, url_for, flash
 from flask_bootstrap import Bootstrap
 from flask_sqlalchemy import SQLAlchemy
-from flask_wtf.csrf import CSRFProtect
 from flask_login import UserMixin, login_user, LoginManager, login_required, current_user, logout_user
 from forms import RegisterForm, LoginForm
 from sqlalchemy.orm import relationship
@@ -9,11 +8,8 @@ from sqlalchemy.exc import InvalidRequestError
 from werkzeug.security import generate_password_hash, check_password_hash
 from datetime import datetime
 from collections import Counter
-import os
-
 
 app = Flask(__name__)
-csrf = CSRFProtect(app)
 app.config["SECRET_KEY"] = "sjl3uwre93wpuasfhewiorhewrhnsak"
 Bootstrap(app)
 
