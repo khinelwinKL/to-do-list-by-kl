@@ -1,0 +1,12 @@
+{% include "header.html" %}
+
+<p class="error-message" style="color: red;">You need to login to save the list 🙂</p>
+
+<div class="container-fluid">
+  <p>Already have an account? Login</p>
+  <button class="click-button"><a href="{{ url_for('login') }}">Login</a></button>
+  <p>Not a user yet? Please register</p>
+  <button class="click-button"><a href="{{ url_for('register') }}">Register</a></button></p>
+</div>
+
+{% include "footer.html" %}

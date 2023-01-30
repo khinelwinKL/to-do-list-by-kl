@@ -1,0 +1,23 @@
+{% include "header.html" %}
+
+<div class="form task">
+ <div class="row">
+   <div class="col-lg-6 col-md-12">
+     <h2 class="task-title">Incomplete Tasks</h2>
+      <form class="incomplete-list-form" method="POST" action="{{ url_for('show_checklist', title_id=title.id) }}">
+       {% for incomplete_task in incomplete_tasks: %}
+         {{ incomplete_task }}&nbsp;&nbsp; <input type="checkbox" name="my-checkbox" value="{{ incomplete_task }}"><br>
+       {% endfor %}
+          <button class="done-button btn-sm btn-outline-secondary" type="submit">Done</button>
+    </form>
+   </div>
+   <div class="col-lg-6 col-md-12">
+     <h2 class="task-title">Complete Tasks</h2>
+       {% for complete_task in complete_tasks: %}
+         <p class="finished-task">{{ complete_task }}</p>
+       {% endfor %}
+   </div>
+ </div>
+</div>
+
+{% include "footer.html" %}

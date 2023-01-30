@@ -1,0 +1,24 @@
+{% include "header.html" %}
+
+<div class="form-box">
+   <form action="{{ url_for('add_checklist', title_id=title.id) }}" method="POST">
+      <label>Enter your to-do list here</label>
+      <input type="text" name="checklist-name" style="width: 350px;">
+      <button class="add-button btn btn-outline-secondary" type="submit">Add Checklist</button>
+      <button class="done-button btn btn-outline-secondary"><a href="{{ url_for('show_checklist', title_id=title.id) }}">Done</a></button>
+   </form>
+</div>
+
+<div class="list-box">
+   <h2>My To-Do List</h2>
+   {% if all_checklists != []:%}
+     {% for checklist in all_checklists: %}
+        <p>{{ checklist.list_description }}<a href="{{ url_for('delete_checklist', title_id=title.id, checklist_id=checklist.id) }}">&nbsp;&nbsp;&nbsp;❌</a></p>
+     {% endfor %}
+   {% else: %}
+      <p>You don't have any to-do list yet. Add One? </p>
+   {% endif %}
+</div>
+
+{% include "footer.html" %}
+
